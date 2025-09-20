@@ -1,67 +1,84 @@
-<div class="custom_cursor"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            cursor: none;
+        }
 
-<style>
-  body {
-    cursor: none;
-  }
+        .custom_cursor {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background-color: #000;
+            opacity: 0;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
 
-  .custom_cursor {
-    position: fixed;
-    width: 12px;
-    height: 12px;
-    background-color: #000;
-    opacity: 0;
-    pointer-events: none;
-    mix-blend-mode: difference;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
+        .vector-point {
+            position: absolute;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 1s linear;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom_cursor"></div>
 
-  .vector-point {
-    position: absolute;
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 1s linear;
-    z-index: 999;
-  }
-</style>
+    <h1>hello, world! :p </h1>
+    <p>welcome to my github?</p>
 
-<script>
-const hexCodes = [
-  '#00FF2F', '#00FFEA', '#FF5900', '#FF00FF',
-  '#FF0000', '#F6FF00', '#DDFF00', '#cde0f5',
-  '#e362d3', '#01a451'
-];
+    <script>
+        const hexCodes = [
+            '#FF006E', // hot pink
+            '#FB5607', // bright orange
+            '#FFBE0B', // golden yellow
+            '#3A86FF', // vivid blue
+            '#8338EC', // electric purple
+            '#FF1B1C', // neon red
+            '#00F5D4', // aqua cyan
+            '#06D6A0', // teal green
+            '#FFD60A', // punchy yellow
+            '#FF4D6D'  // coral pink
+        ];
 
-const cursor = document.querySelector(".custom_cursor");
+        const cursor = document.querySelector(".custom_cursor");
 
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = `${e.pageX}px`;
-  cursor.style.top = `${e.pageY}px`;
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
 
-  const vectorPoint = document.createElement("div");
-  vectorPoint.className = "vector-point";
-  document.body.appendChild(vectorPoint);
-  vectorPoint.style.left = `${e.pageX}px`;
-  vectorPoint.style.top = `${e.pageY}px`;
-  vectorPoint.style.backgroundColor = hexCodes[Math.floor(Math.random() * hexCodes.length)];
+            const vectorPoint = document.createElement("div");
+            vectorPoint.className = "vector-point";
+            document.body.appendChild(vectorPoint);
+            vectorPoint.style.left = `${e.pageX}px`;
+            vectorPoint.style.top = `${e.pageY}px`;
+            vectorPoint.style.backgroundColor =
+                hexCodes[Math.floor(Math.random() * hexCodes.length)];
 
-  const size = Math.random() * 8 + 4;
-  vectorPoint.style.width = `${size}px`;
-  vectorPoint.style.height = `${size}px`;
+            const size = Math.random() * 8 + 4;
+            vectorPoint.style.width = `${size}px`;
+            vectorPoint.style.height = `${size}px`;
 
-  fadeOutVectorPoint(vectorPoint);
-});
+            fadeOutVectorPoint(vectorPoint);
+        });
 
-function fadeOutVectorPoint(vectorPoint) {
-  setTimeout(() => {
-    vectorPoint.style.opacity = "0";
-    vectorPoint.addEventListener("transitionend", () => {
-      vectorPoint.remove();
-    });
-  }, 200);
-}
-</script>
-
-<h1>hello, world! :p </h1>
-<p>welcome to my github?</p>
+        function fadeOutVectorPoint(vectorPoint) {
+            setTimeout(() => {
+                vectorPoint.style.opacity = "0";
+                vectorPoint.addEventListener("transitionend", () => {
+                    vectorPoint.remove();
+                });
+            }, 200);
+        }
+    </script>
+</body>
+</html>
