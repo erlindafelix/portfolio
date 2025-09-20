@@ -1,2 +1,65 @@
+<style>
+  body {
+    cursor: none;
+  }
+
+  .custom_cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+
+  .vector-point {
+    position: absolute;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 1s linear;
+    z-index: 999;
+  }
+</style>
+
+<script>
+const hexCodes = [
+  '#00FF2F', '#00FFEA', '#FF5900', '#FF00FF',
+  '#FF0000', '#F6FF00', '#DDFF00', '#cde0f5',
+  '#e362d3', '#01a451'
+];
+
+const cursor = document.querySelector(".custom_cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = `${e.pageX}px`;
+  cursor.style.top = `${e.pageY}px`;
+
+  const vectorPoint = document.createElement("div");
+  vectorPoint.className = "vector-point";
+  document.body.appendChild(vectorPoint);
+  vectorPoint.style.left = `${e.pageX}px`;
+  vectorPoint.style.top = `${e.pageY}px`;
+  vectorPoint.style.backgroundColor = hexCodes[Math.floor(Math.random() * hexCodes.length)];
+
+  const size = Math.random() * 8 + 4;
+  vectorPoint.style.width = `${size}px`;
+  vectorPoint.style.height = `${size}px`;
+
+  fadeOutVectorPoint(vectorPoint);
+});
+
+function fadeOutVectorPoint(vectorPoint) {
+  setTimeout(() => {
+    vectorPoint.style.opacity = "0";
+    vectorPoint.addEventListener("transitionend", () => {
+      vectorPoint.remove();
+    });
+  }, 200);
+}
+</script>
+
 <h1>hello, world! :p </h1>
 <p>welcome to my github?</p>
