@@ -3,54 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>erlinda felix</title>
     <style>
-        body {
-            cursor: none;
-        }
-
-        .custom_cursor {
-            position: fixed;
-            width: 12px;
-            height: 12px;
-            background-color: #000;
-            opacity: 0;
-            pointer-events: none;
-            mix-blend-mode: difference;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-        }
-
-        .vector-point {
-            position: absolute;
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 1s linear;
-            z-index: 999;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
     </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="custom_cursor"></div>
-
-    <h1>hello, world! :p </h1>
-    <p>welcome to my github?</p>
-    <br>
-    <p>I am a London-based computer science graduate drawn to the borderlands of code and art. My work is curious about the self in relation to technology, often using machine learning as both tool and subject.</p>
-
+    <div class="container">
+        <div class="custom_cursor"></div>
+        <div class="sidebar">
+            <h1>MY NAME IS <span class="spellcheck">ERLINDA</span>.</h1>
+            <br>
+            <h2>ABOUT</h2>
+            <p>I am a London-based computer science graduate drawn to the borderlands of code and art.
+                <br><br>
+                My work is curious about the self in relation to technology, often using machine learning as both tool and subject.
+            </p>    
+        </div>
+        
+        <div class="main-content">
+            <h2>WORK</h2>
+            <p class="list">
+                01. <a href="https://editor.p5js.org/erlindafelix1997/sketches/QJszEEnwi" target="_blank">Gesture Synth</a> [ machine learning, hand tracking, polyphonic synthesis ] <br>
+                02. <a href="" target="_blank">Pixel Sorting Glitch Effect</a> [ - - - ] <br>
+                03. <a href="" target="_blank">Dynamic ASCII Portrait</a> [ - - - ] <br>
+                04. <a href="https://editor.p5js.org/erlindafelix1997/sketches/tE7TKRxnZ" target="_blank">Generative Grid Study</a> [ generative art ] <br>
+            </p>
+            
+        </div>
+    </div>
+    
+    
+    
     <script>
         const hexCodes = [
-            '#FF006E', // hot pink
-            '#FB5607', // bright orange
-            '#FFBE0B', // golden yellow
-            '#3A86FF', // vivid blue
-            '#8338EC', // electric purple
-            '#FF1B1C', // neon red
-            '#00F5D4', // aqua cyan
-            '#06D6A0', // teal green
-            '#FFD60A', // punchy yellow
-            '#FF4D6D'  // coral pink
+        '#FF0000', // pure red
+        '#00FF00', // pure green
+        '#0000FF', // pure blue
+        '#FFFF00', // pure yellow
+        '#FF00FF', // magenta
+        '#00FFFF', // cyan
+        '#FF7F00', // crude orange
+        '#8B00FF', // violet
+        '#FF006E', // hot pink
+        '#8338EC', // electric purple
+        '#FB5607' // bright orange
         ];
+
 
         const cursor = document.querySelector(".custom_cursor");
 
@@ -66,7 +66,7 @@
             vectorPoint.style.backgroundColor =
                 hexCodes[Math.floor(Math.random() * hexCodes.length)];
 
-            const size = Math.random() * 8 + 4;
+            const size = Math.pow(Math.random(), 2) * 10 + 4; 
             vectorPoint.style.width = `${size}px`;
             vectorPoint.style.height = `${size}px`;
 
