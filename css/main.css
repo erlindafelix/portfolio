@@ -1,0 +1,84 @@
+@media (max-width: 1400px) {
+  .container { width: 90%; }
+}
+
+.container {
+  width: 1400px;
+  margin: 0 auto;
+  padding: 40px 40px;
+  display: flex;
+}
+
+body {
+  cursor: none;
+  font-family: "Martian Mono", monospace;
+  font-weight: 200;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+h2 {
+  padding-top: 20px;
+  font-weight: 300;
+  font-size: 15px;   
+}
+
+p {
+  font-size: 11px;
+}
+
+.sidebar {
+  flex: 0 0 300px;
+  width: 300px;
+  height: 100vh;
+  padding-right: 40px;
+}
+
+.main-content {
+    flex: 1;
+    padding-left: 100px;
+    padding-top: 70px;
+}
+
+.spellcheck {
+  border-bottom: 2px dotted red;
+  padding-bottom: 2px;
+}
+
+.list{
+    line-height: 30px;
+    top: 0;
+}
+
+.list a{
+    text-decoration: none;
+    color: black;
+}
+
+.list a:hover{
+    color:#FF69B4;
+    font-weight: 400;
+}
+
+.custom_cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.vector-point {
+  position: absolute;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 1s linear;
+  z-index: 999;
+}
