@@ -26,6 +26,19 @@ h2 {
   font-size: 15px;   
 }
 
+marquee{
+    font-size: 10px;
+    font-weight: 400;
+    background-color: rgb(255, 83, 20);
+    line-height: 20px;
+    color: white;
+}
+
+marquee a{
+    color: white;
+    text-decoration: none;
+}
+
 p {
   font-size: 11px;
 }
