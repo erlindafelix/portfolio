@@ -37,6 +37,15 @@ p {
   padding-right: 40px;
 }
 
+#perlin-container {
+  flex: 1;
+  padding-top: 30px;
+}
+
+canvas {
+  display: block;
+}
+
 .main-content {
     flex: 1;
     padding-left: 100px;
