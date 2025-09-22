@@ -62,7 +62,12 @@ canvas {
 .main-content {
     flex: 1;
     padding-left: 100px;
-    padding-top: 70px;
+    padding-top: 20px;
+}
+
+.main-content p {
+    width: 80%;
+    line-height: 15px;
 }
 
 .spellcheck {
@@ -70,19 +75,61 @@ canvas {
   padding-bottom: 2px;
 }
 
-.list{
+#list{
     line-height: 30px;
     top: 0;
 }
 
-.list a{
+#list a{
     text-decoration: none;
     color: black;
 }
 
-.list a:hover{
+#list a:hover{
     color:#FF69B4;
     font-weight: 400;
+}
+
+.media-gallery {
+    padding-top: 30px;
+    display: flex;
+    width: 80%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.media-item {
+    flex: 1; /* start evenly (slivers) */
+    transition: flex 0.5s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.media-item img,
+.media-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* hover effect: expand hovered item, shrink others */
+.media-item:hover {
+    flex: 5;
+    z-index: 1;
+}
+
+.media-gallery:hover .media-item:not(:hover) {
+    flex: 0.7; /* shrinks others */
+}
+
+/* zoom effect on the media itself */
+.media-item:hover img,
+.media-item:hover video {
+    /* transform: scale(1.05); */
+    object-fit: contain; 
+    background: #000;
 }
 
 .custom_cursor {
