@@ -151,3 +151,115 @@ canvas {
   transition: opacity 1s linear;
   z-index: 999;
 }
+
+/* ---- mobile vertical-only fix ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---- full mobile patch ---- */
+@media (max-width: 768px) {
+  /* general safety */
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 0 16px;
+    margin: 0;
+  }
+
+  /* container layout: single column */
+  .container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  /* sidebar adjustments */
+  .sidebar {
+    height: auto !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 20px;
+    width: 100% !important;
+  }
+
+  /* hide Perlin grid completely */
+  #perlin-container {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* main content adjustments */
+  .main-content {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .main-content p{
+    width: 100% !important;
+  }
+
+  /* text adjustments */
+  h1, h2, p, #list {
+    width: 100%;
+    max-width: 100%;
+    line-height: 1.4em;
+    margin: 0 0 12px 0;
+  }
+
+  /* media gallery stacked vertically */
+  .media-gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .media-item {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 16px !important;
+    min-width: 0;
+  }
+
+  .media-item img,
+  .media-item video {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* links & list spacing */
+  #list {
+    line-height: 24px;
+    /* font-size: 14px; */
+  }
+
+  /* hide custom cursor */
+  .custom_cursor {
+    display: none !important;
+  }
+
+  /* ensure no element causes horizontal overflow */
+  .sidebar, .main-content, .media-item, img, video {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+/* ---- end mobile patch ---- */
